@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Secure Cloud Storage Banner" width="100%">
+</p>
 # 🔐 Secure Cloud Storage Using Cryptographic Encryption and Activity Monitoring
 
 A secure cloud storage web application developed using **Python Flask** that protects user files with **Fernet Cryptographic Encryption**, provides **controlled user access**, and records **user activities** to ensure data security and accountability.
