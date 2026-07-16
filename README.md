@@ -1,47 +1,90 @@
 # 🔐 Secure Cloud Storage Using Cryptographic Encryption and Activity Monitoring
 
+A secure cloud storage web application developed using **Python Flask** that protects user files with **Fernet Cryptographic Encryption**, provides **controlled user access**, and records **user activities** to ensure data security and accountability.
+
+---
+
 ## 📖 Project Overview
 
-Secure Cloud Storage is a web-based application developed using **Python Flask** that provides secure file storage through **Fernet Cryptographic Encryption**. The system allows authenticated users to upload, encrypt, decrypt, and manage files while maintaining activity logs for enhanced security and accountability.
-
-This project was developed as part of the **Master of Computer Applications (MCA)** mini project.
+This project provides a secure platform where users can register, log in, upload files, encrypt them before storage, decrypt authorized files, and monitor all important activities. The system is designed to improve the confidentiality, integrity, and management of stored data.
 
 ---
 
 ## ✨ Features
 
-- User Registration and Login
+- User Registration & Login
 - Secure File Upload
 - Fernet Cryptographic Encryption
 - Secure File Decryption
 - Activity Monitoring
-- Storage Analytics
-- Responsive Dashboard
+- Storage Analytics Dashboard
 - User Authentication
-- Secure File Management
+- Responsive User Interface
 
 ---
 
-## 🛠 Technologies Used
+## 🛠️ Technology Stack
 
-- Python
-- Flask
-- HTML5
-- CSS3
-- JavaScript
-- SQLite
-- Cryptography (Fernet)
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python |
+| Framework | Flask |
+| Frontend | HTML5, CSS3, JavaScript |
+| Database | SQLite |
+| Encryption | Fernet (Cryptography Library) |
+| IDE | Visual Studio Code |
+
+---
+
+# 📸 Project Screenshots
+
+## 🏠 Home Page
+
+![Home](screenshots/home.png)
+
+---
+
+## 🔐 Login Page
+
+![Login](screenshots/login.png)
+
+---
+
+## 📝 Register Page
+
+![Register](screenshots/register.png)
+
+---
+
+## 📊 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## 📂 Encrypted Files
+
+![Encrypted Files](screenshots/encryptedfiles.png)
+
+---
+
+## 📈 Storage Analytics & Activity Monitoring
+
+> **Important:** If this image doesn't appear because of the filename, we'll rename it in the next step.
+
+![Analytics](screenshots/storage%20analytics%20and%20activity%20monitoring.png)
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 secure-cloud-storage-cryptographic-encryption
 │
 ├── app.py
 ├── static/
 ├── templates/
+├── screenshots/
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -51,25 +94,17 @@ secure-cloud-storage-cryptographic-encryption
 
 ## 🚀 Installation
 
-1. Clone the repository
-
 ```bash
 git clone https://github.com/Indhu-Sivasamy/secure-cloud-storage-cryptographic-encryption.git
 ```
-
-2. Navigate to the project
 
 ```bash
 cd secure-cloud-storage-cryptographic-encryption
 ```
 
-3. Install dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
-
-4. Run the application
 
 ```bash
 python app.py
@@ -92,8 +127,8 @@ python app.py
 - Multi-Factor Authentication (MFA)
 - Cloud Integration (AWS / Azure)
 - Secure File Sharing
-- Mobile Application
-- Advanced Threat Detection
+- Email Notifications
+- Mobile Application Support
 
 ---
 
@@ -104,3 +139,7 @@ python app.py
 Master of Computer Applications (MCA)
 
 Rathinam Technical Campus
+
+---
+
+⭐ If you found this project useful, consider giving it a **Star** on GitHub.
