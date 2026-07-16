@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top left,#1e3a8a,#020617 70%);
+
+    overflow:hidden;
+}
+
+/* Background Glow */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#06b6d4;
+    filter:blur(180px);
+    opacity:0.15;
+    top:-150px;
+    left:-150px;
+}
+
+.login-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.login-box{
+
+    width:480px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* Icon */
+
+.login-box .icon{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+/* Heading */
+
+.login-box h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+/* Form */
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input{
+    width:100%;
+    padding:18px 20px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    color:white;
+    font-size:16px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+input:focus{
+    border:1px solid #06b6d4;
+
+    box-shadow:
+    0 0 20px rgba(6,182,212,0.4);
+}
+
+/* Button */
+
+button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(6,182,212,0.4);
+}
+
+/* Register */
+
+.register-link{
+    margin-top:25px;
+    color:#cbd5e1;
+}
+
+.register-link a{
+    color:#06b6d4;
+    text-decoration:none;
+    font-weight:600;
+}
+.login-box h1{
+    color:white !important;
+}
+.logo{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#94a3b8;
+    margin-bottom:25px;
+    font-size:14px;
+}
+.login-box:hover{
+    transform:translateY(-5px);
+    transition:.4s;
+}

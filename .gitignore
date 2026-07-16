@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Database
+instance/
+*.db
+
+# Encryption Key
+secret.key
+
+# Logs
+activity.log
+
+# Uploaded Files
+uploads/
+
+# Virtual Environment
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top left,#1e3a8a,#020617 70%);
+
+    overflow-y:auto;
+
+    padding:40px 0;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#06b6d4;
+    filter:blur(180px);
+    opacity:0.15;
+    top:-150px;
+    left:-150px;
+}
+
+.register-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.register-box{
+
+    width:500px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:30px;
+
+    padding: 35px 50px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.4);
+}
+
+.logo{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.register-box h1{
+    font-size:42px;
+    margin-bottom:10px;
+    color:white;
+}
+
+.register-box p{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+input{
+
+    padding:14px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+input:focus{
+
+    border:1px solid #06b6d4;
+
+    box-shadow:
+    0 0 20px rgba(6,182,212,0.4);
+}
+
+button{
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #06b6d4,
+        #3b82f6
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(6,182,212,0.4);
+}
+
+.login-link{
+    margin-top:25px;
+    color:#cbd5e1;
+}
+
+.login-link a{
+    color:#06b6d4;
+    text-decoration:none;
+    font-weight:600;
+}

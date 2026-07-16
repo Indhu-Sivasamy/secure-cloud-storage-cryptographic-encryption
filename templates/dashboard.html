@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Toast Notifications -->
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        <div class="toast-container">
+
+            {% for message in messages %}
+
+                <div class="toast-message">
+
+                    <span>{{ message }}</span>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <h2>🔐 Secure Cloud</h2>
+
+           <ul>
+
+<li>
+    <a href="/dashboard">
+        📊 Dashboard
+    </a>
+</li>
+
+<li>
+    <a href="#upload-section">
+        ⬆ Upload File
+    </a>
+</li>
+
+<li>
+    <a href="#files-section">
+        📁 Encrypted Files
+    </a>
+</li>
+
+<li>
+    <a href="#activity-section">
+        🕒 Activity
+    </a>
+</li>
+
+<li>
+    <a href="/logout">
+        🚪 Logout
+    </a>
+</li>
+
+</ul>
+
+
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <div class="top-bar">
+
+    <div>
+        <h1>Secure Cloud Storage</h1>
+        <p class="dashboard-subtitle">
+            Advanced Encrypted File Management System
+        </p>
+    </div>
+
+    <button onclick="toggleMode()" id="mode-btn">
+        🌙 Dark Mode
+    </button>
+
+</div>
+<div class="welcome-banner">
+
+    <div>
+        <h2>Welcome Back, {{ user.username }} 👋</h2>
+
+        <p>
+            Your files are protected with Fernet AES Encryption
+            and securely stored in the cloud.
+        </p>
+    </div>
+
+</div>
+<!-- Security Analytics Panel -->
+
+<div class="security-panel">
+
+    <div class="profile-left">
+
+        <div class="avatar">
+            {{ user.username[0].upper() }}
+        </div>
+
+        <div>
+            <h2>{{ user.username }}</h2>
+            <p>{{ user.email }}</p>
+        </div>
+
+    </div>
+
+    <div class="profile-right">
+
+        <div class="security-box">
+            <h3>📂 Files</h3>
+            <p>{{ total_files }}</p>
+        </div>
+
+        <div class="security-box">
+            <h3>☁ Storage</h3>
+            <p>{{ storage }} KB</p>
+        </div>
+
+        <div class="security-box">
+            <h3>🔐 Encryption</h3>
+            <p>Fernet AES</p>
+        </div>
+
+        <div class="security-box">
+            <h3>🛡 Security</h3>
+            <p>HIGH</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Storage Progress -->
+
+<div class="progress-section">
+
+    <h3>Storage Usage</h3>
+
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <p>{{ storage }} KB used of 1 GB</p>
+
+</div>
+<!-- Recent Activity Panel -->
+
+<div class="activity-panel" id="activity-section">
+
+    <h2>🕒 Recent Security Activity</h2>
+
+    {% for activity in activities %}
+
+        <div class="activity-item">
+            {{ activity }}
+        </div>
+
+    {% endfor %}
+
+</div>
+<!-- Storage Analytics -->
+
+<div class="analytics-section">
+
+    <div class="circle-wrap">
+
+        <div class="circle">
+
+            <div class="inside-circle">
+                {{ storage_percent }}%
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="analytics-text">
+
+        <h2>📊 Storage Analytics</h2>
+
+        <p>
+        {% if storage_percent < 50 %}
+        🟢 {{ storage }} KB used of 1 GB
+        {% elif storage_percent < 80 %}
+        🟡 {{ storage }} KB used of 1 GB
+        {% else %}
+        🔴 {{ storage }} KB used of 1 GB
+        {% endif %}
+        </p>
+
+        <p>Secure encrypted cloud storage monitoring</p>
+
+    </div>
+
+</div>
+            <div class="card-container">
+
+                <div class="card">
+                    <h3>Total Files</h3>
+                    <p>{{ total_files }}</p>
+                </div>
+
+                <div class="card">
+   <h3>Encryption Type</h3>
+<p>Fernet AES 🔐</p>
+</div>
+                <div class="card">
+                    <h3>Security Status</h3>
+                    <p>Protected 🔐</p>
+                </div>
+
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-box" id="upload-section">
+
+                <h2>Upload Secure File</h2>
+            <div class="upload-box" id="files-section" style="margin-top:30px;">
+
+    <h2>Encrypted Files</h2>
+    <input 
+    type="text"
+    id="searchInput"
+    placeholder="🔎 Search files..."
+    onkeyup="searchFiles()"
+    class="search-box"
+>
+
+    <table id="fileTable" style="width:100%; margin-top:20px; color:white;">
+
+        <tr>
+            <th align="left">File Name</th>
+            <th align="left">Upload Time</th>
+            <th align="left">File Size</th>
+            <th align="left">Status</th>
+            <th align="left">Decrypt</th>
+            <th align="left">Delete</th>
+        </tr>
+
+        {% for file in files %}
+        <tr class="file-row">
+
+            <td>{{ file.name }}</td>
+            <td>{{ file.time }}</td>
+            <td>{{ file.size }} KB</td>
+            <td>
+    <span class="status-badge">
+        🔐 Encrypted
+    </span>
+</td>
+
+            <td>
+    <a href="/decrypt/{{ file.name }}">
+        <button>Decrypt</button>
+    </a>
+</td>
+
+<td>
+    <a href="/delete/{{ file.name }}">
+        <button class="delete-btn">
+            Delete
+        </button>
+    </a>
+</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>    
+
+                <form method="POST" enctype="multipart/form-data">
+
+                    <input type="file" name="file" required>
+
+                    <button type="submit">Upload File</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+<script>
+
+// Apply saved theme immediately after page loads
+window.onload = function(){
+
+    let savedTheme = localStorage.getItem("theme");
+
+    let button = document.getElementById("mode-btn");
+
+    if(savedTheme === "light"){
+
+        document.body.classList.add("light-mode");
+
+        button.innerHTML = "☀ Light Mode";
+    }
+
+    else{
+
+        document.body.classList.remove("light-mode");
+
+        button.innerHTML = "🌙 Dark Mode";
+    }
+}
+
+// Toggle theme
+function toggleMode(){
+
+    document.body.classList.toggle("light-mode");
+
+    let button = document.getElementById("mode-btn");
+
+    if(document.body.classList.contains("light-mode")){
+
+        localStorage.setItem("theme", "light");
+
+        button.innerHTML = "☀ Light Mode";
+    }
+
+    else{
+
+        localStorage.setItem("theme", "dark");
+
+        button.innerHTML = "🌙 Dark Mode";
+    }
+}
+// File Search Function
+
+function searchFiles(){
+
+    let input = document.getElementById("searchInput");
+
+    let filter = input.value.toLowerCase();
+
+    let rows = document.getElementsByClassName("file-row");
+
+    for(let i = 0; i < rows.length; i++){
+
+        let fileName = rows[i]
+            .getElementsByTagName("td")[0]
+            .innerText
+            .toLowerCase();
+
+        if(fileName.includes(filter)){
+            rows[i].style.display = "";
+        }
+
+        else{
+            rows[i].style.display = "none";
+        }
+    }
+}
+// Auto hide toast notifications
+
+setTimeout(() => {
+
+    let toast = document.querySelector(".toast-container");
+
+    if(toast){
+
+        toast.style.opacity = "0";
+
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, 500);
+    }
+
+}, 3000);
+
+</script>
+</body>
+</html>
