@@ -1,6 +1,27 @@
 <p align="center">
   <img src="assets/banner.png" alt="Secure Cloud Storage Banner" width="100%">
 </p>
+<h1 align="center">🔐 Secure Cloud Storage Using Cryptographic Encryption and Activity Monitoring</h1>
+
+<p align="center">
+A secure cloud storage web application built using Python Flask that protects user files through cryptographic encryption, secure authentication, and activity monitoring.
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)
+
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)
+
+![Encryption](https://img.shields.io/badge/Encryption-Fernet-success)
+
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+</p>
+
+---
 # 🔐 Secure Cloud Storage Using Cryptographic Encryption and Activity Monitoring
 
 A secure cloud storage web application developed using **Python Flask** that protects user files with **Fernet Cryptographic Encryption**, provides **controlled user access**, and records **user activities** to ensure data security and accountability.
