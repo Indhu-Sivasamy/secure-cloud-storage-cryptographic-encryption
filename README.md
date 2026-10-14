@@ -94,7 +94,6 @@ This project provides a secure platform where users can register, log in, upload
 
 ## 📈 Storage Analytics & Activity Monitoring
 
-> **Important:** If this image doesn't appear because of the filename, we'll rename it in the next step.
 
 ![Analytics](screenshots/analytics-activity.png)
 
